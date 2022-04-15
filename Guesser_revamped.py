@@ -1,21 +1,39 @@
 import random
 
-
+def get_top(message, bottom_range):
+  """
+  Gets top range as an integer and gets top range higher than bottom
+  """
+  try:
+    x = int(input(message))
+    if (x > bottom_range):
+      return(x)
+    else:
+      print("Provide a number greater than "+bottom_range)
+      get_top(message,bottom_range)
+  except:
+    print("Please provide an integer")
+    get_top(message, bottom_range)
+    
+  try:
+    x = int(input(message))
+    return(x)
+  except:
+    print("Please provide an integer")
+    get_int(message)
+    
 def get_int(message):
   """
   Gets an integer
   """
-  x = input(message)
-  check_x = isinstance(x, int)
-  print(check_x,x)
-  if (check_x == True):
+
+  try:
+    x = int(input(message))
     return(x)
-  else:
-    # raise AssertionError ("That is not an integer.")
+  except:
     print("Please provide an integer")
     get_int(message)
 
-  
 def again():
   """
   Asks if user wants to play again
@@ -51,7 +69,7 @@ def play_game():
   Runs code to play game
   """
   minimum_range = get_int("Enter the minimum number")
-  top_range = get_int("Enter the maximum number")
+  top_range = get_top("Enter the maximum number",minimum_range)
   random_number = random.randint(minimum_range, top_range)
   guess_number(random_number, top_range, minimum_range) 
   again()
