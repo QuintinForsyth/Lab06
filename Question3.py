@@ -18,7 +18,6 @@ def is_leapyear(year):
   year_by_four_hun =is_int(year_by_four_hun)
   year_by_four = year/4
   year_by_four =is_int(year_by_four)
-  
   """
   checks if year is valid then checks if the year is divisible by four, then checks if it is a 100 and 400 year or just a 4 leap year
   """
